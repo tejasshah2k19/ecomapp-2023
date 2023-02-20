@@ -21,4 +21,48 @@ how to open signup ->
 	java server pages / java servlet pages 
 	
 	views ->folder -> new -> jsp -> Signup.jsp 
-		
+	now create form with fields 
+	
+now create controller SessionController if not 
+inside SessionController we create 1 method that open Signup jsp for us 
+
+	@GetMapping("/signup")
+	public String signup() {
+
+		return "Signup";
+	}		
+
+----------------------------------------------------------------
+
+file -> new -> jsp 	
+	i dont have option for jsp
+		install jps plugins from eclipe market place 
+			steps :	
+				click on Help menu -> click eclipse market place -> click on popular->
+						you can see java ee or web developer tools now click on install button 
+								-> now just do next / yes / accept etc 
+								-> we dont need to select any package or tools if they ask
+								--> finish 
+			once installation done restart your STS and check you have your jsp option 
+			
+			
+			
+----------------------------------------------------------------
+			
+			
+			
+			
+			
+			
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
