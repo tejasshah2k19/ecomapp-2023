@@ -1,0 +1,24 @@
+com -> folder -> google -> 
+					create folders inside google ->
+								controller
+								dao
+								bean
+								util
+
+
+start -> page  ? 
+	Signup 
+	Login 
+	
+	SessionController -> login , signup , forgetpassword 
+
+create 1 class with name SessionController inside controller folder 
+
+how to open signup ->
+1) create controller if not 
+2) create view file -- jsp{html+java} | html 
+	jsp -> view file --> browser -> we can write HTML + JAVA 
+	java server pages / java servlet pages 
+	
+	views ->folder -> new -> jsp -> Signup.jsp 
+		
