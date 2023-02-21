@@ -33,8 +33,9 @@ inside SessionController we create 1 method that open Signup jsp for us
 	}		
 
 ----------------------------------------------------------------
-
-file -> new -> jsp 	
+how to create jsp file ? 
+file -> new -> other -> jsp
+ 	
 	i dont have option for jsp
 		install jps plugins from eclipe market place 
 			steps :	
@@ -49,8 +50,18 @@ file -> new -> jsp
 			
 ----------------------------------------------------------------
 			
-			
-			
+configure below properties in application.properties 
+	1) server port 
+	2) views ? jsp 
+	3)* database 
+	
+				
+we need to add jsp lib for spring boot app => 
+	then only we can access jsp
+	
+	inside pom.xml we need to add 
+		dependency under the dependencies tag 
+						
 			
 			
 			
