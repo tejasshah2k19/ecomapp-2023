@@ -62,7 +62,13 @@ we need to add jsp lib for spring boot app =>
 	inside pom.xml we need to add 
 		dependency under the dependencies tag 
 						
-			
+
+Task : 
+	create 1 url /login 
+		login url will open Login.jsp
+				Login.jsp have form with 1) email 2) password and 3) Submit button 
+				
+							
 			
 			
 			

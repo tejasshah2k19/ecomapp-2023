@@ -8,13 +8,15 @@
 </head>
 <body>
 
-	<form>
+	<form action="saveuser" method="post">
 		FirstName : <input type="text" name="firstName"><br><br>
 		LastName : <input type="text" name="lastName"><br><br>
 		Email :<input type="email" name="email"><br><br>
 		Password : <input type="password" name="password"><br><br>
 		
 		<input type="submit" value="Signup"/>
-	</form>
+	</form><br><br>
+	
+	<a href="login">LogIn</a>
 </body>
 </html>
