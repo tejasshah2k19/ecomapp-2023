@@ -7,7 +7,7 @@
 <title>Login</title>
 </head>
 <body>
-	<form>
+	<form action="authentication" method="post">
 
 		Email :<input type="email" name="email"><br>
 		<br> Password : <input type="password" name="password"><br>

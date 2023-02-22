@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,14 @@
 <title>Forget Password</title>
 </head>
 <body>
-<form>
-	 
-		Email :<input type="email" name="email"><br><br>
-		 
-		<input type="submit" value="Send Otp"/>
-	</form><br><br>
-	
+	<form action="sendotpforforgetpassword" method="post">
+
+		Email :<input type="email" name="email"><br>
+		<br> <input type="submit" value="Send Otp" />
+	</form>
+	<br>
+	<br>
+
 	<a href="login">LogIn</a>
 </body>
 </html>

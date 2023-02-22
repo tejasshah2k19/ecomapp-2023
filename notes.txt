@@ -67,7 +67,82 @@ Task :
 	create 1 url /login 
 		login url will open Login.jsp
 				Login.jsp have form with 1) email 2) password and 3) Submit button 
-				
+----------------------------------------------------------------
+read data from client we need to create method in controller with @Postmapping 
+also create a bean with field and getters and setters. 
+pass that bean in method's argument. 
+----------------------------------------------------------------
+1) input 
+	jsp open 
+	controller @Getmapping("/signup")
+		return Signup 
+2)	fn ln em pwd 
+		submit -->
+	@Postmapping("/saveuser")
+	signup jsp read -> process -> response 
+3)	Output [ jsp ] Login jsp 
+
+----------------------------------------------------------------
+signup data --> 
+		server -->	
+				1) validation
+				2) DBValidation - duplicate 
+				3) DbConnection
+				4) InsertQuery 
+				5) Response --> Login  				
+
+
+----------------------------------------------------------------
+DbConnection 
+
+	
+	open mysql 
+	
+	database create 
+	
+	create database ecomapp; 
+	
+	use ecomapp; 
+	
+	create table users (
+		userId integer primary key auto_increment,
+		firstName varchar(30),
+		lastName varchar(30),
+		email varchar(50),
+		password varchar(80),
+		role integer
+	);
+	
+	1 -> admin 
+	2 -> user/buyer 
+	
+	desc users;
+	
+-----------
+spring Boot app => dbConnection 
+
+
+	1) db [mysql] driver  => jar => maven  [ mysql connector ] 
+	2) query execute  => jar   spring 	   [ spring jdbc ] 
+	3) application.properties -> dbConnection
+					1) driver 
+					2) url 
+					3) userName
+					4) password 
+	spring -> edit starter ->  Mysql Driver , Jdbc Api , Spring Data Jdbc 
+	
+	
+	
+-----------
+	
+
+
+
+
+	
+	
+
+
 							
 			
 			
