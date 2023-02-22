@@ -1,5 +1,6 @@
 package com.google.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,13 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
 import com.google.bean.UserBean;
+import com.google.dao.UserDao;
 
 //annotation 
 @Controller
 public class SessionController {
 
-	// jsp open
+	@Autowired
+	UserDao userDao;
 
+	// jsp open
 	@GetMapping("/signup")
 	public String signup() {
 		return "Signup";
@@ -22,9 +26,13 @@ public class SessionController {
 	// jsp input process
 	@PostMapping("/saveuser")
 	public String saveUser(UserBean user) {
-		System.out.println("jai Hind....");
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
+
+		// validation
+		// dbValidation
+		// insert
+		userDao.insertUser(user);
 		return "Login"; // EmployeeLogin.jsp
 	}
 

@@ -134,7 +134,8 @@ spring Boot app => dbConnection
 	
 	
 -----------
-	
+	insert into users (firstName,lastName,email,password,role) 
+	values ('ram','sita','ram@sita.com','ravan');
 
 
 
