@@ -6,6 +6,9 @@ public class UserBean {
 	private String lastName;
 	private String email;
 	private String password;
+	private Integer role;
+	
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -35,6 +38,12 @@ public class UserBean {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Integer getRole() {
+		return role;
+	}
+	public void setRole(Integer role) {
+		this.role = role;
 	} 
 	
 	

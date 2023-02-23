@@ -21,7 +21,7 @@ public class SessionController {
 	// jsp open
 	@GetMapping("/signup")
 	public String signup() {
-		return "Signup";
+		return "Signup"; //JSP 
 	}
 
 	// jsp input process
@@ -45,7 +45,7 @@ public class SessionController {
 	}
 
 	@PostMapping("/authentication")
-	public String authentication(LoginBean login,Model model) {
+	public String authentication(LoginBean login, Model model) {
 		System.out.println(login.getEmail());
 		System.out.println(login.getPassword());
 
@@ -55,11 +55,19 @@ public class SessionController {
 
 		if (userBean == null) {
 			// inValid
-			model.addAttribute("error","Invalid Credentials");
+			model.addAttribute("error", "Invalid Credentials");
 			return "Login";
 		} else {
 			// valid
-			return "Home";
+			if (userBean.getRole() == 1) {
+				// admin
+				return "redirect:/admindashboard";
+			} else if (userBean.getRole() == 2) {
+				// buyer
+				return "redirect:/home";
+			} else {
+				return "404";
+			}
 		}
 
 	}

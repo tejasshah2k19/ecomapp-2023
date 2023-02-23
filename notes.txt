@@ -166,6 +166,21 @@ spring Boot app => dbConnection
 
 ---------------------------------------------------------------
 
+	ecom ->  admin , buyer 
+	
+			admin login -> AdminDashboard 
+			buyer login ->  Home 
+			
+
+	create two controller 
+		AdminController 
+		BuyerController 
+		
+
+
+
+
+------------------------------------------------------------------
 Task :
 	controller --> 
 			CategoryController 
@@ -177,7 +192,21 @@ Task :
 							print category name which is input by user 
 							return "NewCategory" 
 
-							
+			exp :
+				category -> automobile 
+							restaurant 
+							household 
+				subcategory -> fuel , service , puncture , 
+							-> snacks , dinner , lunch 
+							-> grocery , dailycare , 			
+
+
+			VendorController 
+				newvendor
+					Vendor Name [ Dmart ] 
+						[submit ] 
+						
+													
 			
 			
 			
