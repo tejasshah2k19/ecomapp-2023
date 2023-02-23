@@ -138,11 +138,44 @@ spring Boot app => dbConnection
 	values ('ram','sita','ram@sita.com','ravan');
 
 
+---------------------------------------------------------------
+23-02-2023:-
 
+	1) create authenitcateUser() method in UserDao 
+	2) call  authenitcateUser() method from SessionController::authenticate() 
+	3) check your user for null , if null then redirect to login page 
+							      if not null then redirect to home page 
+							      
 
+	4) if user is null then set error message for Login jsp 
+			4.1) to set any message we need to use Model ,  method's argument [  Model model ] 
+			4.2) model.addAttribute("error","Invalid Credentials"); 
 	
+	5) now we can read error in Login.jsp 
+		5.1) using EL [ expression language] we can read error msg. 
+		5.2)  ${error}	
+		
+	6)* when You run Login.jsp 
+			if you get ${error} in Jsp Page then you need to 
+					isELIgnored="false"
+			int <%@page %> top of the jsp 
+		e.g 	
+		<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+			pageEncoding="ISO-8859-1"  isELIgnored="false"%>	
 	
 
+---------------------------------------------------------------
+
+Task :
+	controller --> 
+			CategoryController 
+					1) open jsp 
+						newcategory 
+							Category Name [   ] 
+								[submit] 
+					2) savecategory 
+							print category name which is input by user 
+							return "NewCategory" 
 
 							
 			

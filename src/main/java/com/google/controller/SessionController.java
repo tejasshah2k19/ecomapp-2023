@@ -2,6 +2,7 @@ package com.google.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -44,10 +45,23 @@ public class SessionController {
 	}
 
 	@PostMapping("/authentication")
-	public String authentication(LoginBean login) {
+	public String authentication(LoginBean login,Model model) {
 		System.out.println(login.getEmail());
 		System.out.println(login.getPassword());
-		return "Home";
+
+		// validation : true
+		// db -> users -> email : password match -> loginBean:email,password
+		UserBean userBean = userDao.authenticateUser(login);
+
+		if (userBean == null) {
+			// inValid
+			model.addAttribute("error","Invalid Credentials");
+			return "Login";
+		} else {
+			// valid
+			return "Home";
+		}
+
 	}
 
 	@GetMapping("/")
