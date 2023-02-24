@@ -176,7 +176,7 @@ spring Boot app => dbConnection
 		AdminController 
 		BuyerController 
 		
-
+	
 
 
 
@@ -208,7 +208,20 @@ Task :
 						
 													
 			
-			
+----------------------------------------------------------------------------------
+24-2-2023
+
+user -> forgetpassword link click ->
+				forgetpassword url 
+						ForgetPassword.jsp 
+								email 
+									submit 
+									
+				url ->sendotpforforgetpassword					
+				1) email read 
+				2) db present ? 
+					2.1) yes -> generate otp -> user table otp save -> send email for otp -> s
+					2.2) no  -> error 	
 			
 	
 	

@@ -10,6 +10,7 @@ import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
 import com.google.bean.UserBean;
 import com.google.dao.UserDao;
+import com.google.util.OtpGenerator;
 
 //annotation 
 @Controller
@@ -83,9 +84,27 @@ public class SessionController {
 	}
 
 	@PostMapping("/sendotpforforgetpassword")
-	public String sendOtpForForgetPassword(ForgetPasswordBean forgetPasswordBean) {
+	public String sendOtpForForgetPassword(ForgetPasswordBean forgetPasswordBean,Model model) {
 		System.out.println(forgetPasswordBean.getEmail());
-		return "Login";
+		
+		UserBean user =   userDao.findUserByEmail(forgetPasswordBean);
+		if(user == null) {
+			//error 
+			model.addAttribute("error","Invalid Email");
+			return "ForgetPassword";
+		}else {
+			//otp 
+			//generate otp
+			//int otp = (int)(Math.random()*1000000);
+			
+			String otp  = OtpGenerator.generateOTP(6);
+			userDao.updateOtp(forgetPasswordBean.getEmail(), otp);
+			//user set --> email 
+			//send mail 
+			return "UpdatePassword";
+		}
+		
+		
 	}
 
 }

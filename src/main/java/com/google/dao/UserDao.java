@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
 import com.google.bean.UserBean;
 
@@ -38,4 +39,44 @@ public class UserDao {
 		}
 		return null;
 	}
+	
+	public UserBean findUserByEmail(ForgetPasswordBean forgetPasswordBean) {
+		try {
+			String selectEmailQuery = "select * from users where email = ?";
+			UserBean user = stmt.queryForObject(selectEmailQuery, new BeanPropertyRowMapper<UserBean>(UserBean.class),
+					new Object[] { forgetPasswordBean.getEmail() });
+
+			return user;
+		} catch (Exception e) {
+			System.out.println("SMW --> UserDao::authenticateUser()");
+			System.out.println(e.getMessage()); 
+		}
+		return null;
+	}
+
+	public void updateOtp(String email,String otp) {
+			String updateOtpQuery = "update users set otp = ? where email = ?";
+			stmt.update(updateOtpQuery,otp,email);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

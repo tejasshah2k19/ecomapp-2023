@@ -12,7 +12,9 @@
 		FirstName : <input type="text" name="firstName"><br><br>
 		LastName : <input type="text" name="lastName"><br><br>
 		Email :<input type="email" name="email"><br><br>
-		Password : <input type="password" name="password"><br><br>
+		Password : <input type="password" name="password">
+		Confirm Password : <input type="password" name="confirmPassword">
+		<br><br>
 		
 		<input type="submit" value="Signup"/>
 	</form><br><br>
