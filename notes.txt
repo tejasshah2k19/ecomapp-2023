@@ -229,6 +229,12 @@ user -> forgetpassword link click ->
 			
 	
 	
+how to send email using gmail 
+
+	1) gmail -> mail -> lib -> jar 
+	2) gmail configuration 
+	3) java 
+	
 	
 	
 	

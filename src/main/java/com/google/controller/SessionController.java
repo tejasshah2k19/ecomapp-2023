@@ -10,6 +10,7 @@ import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
 import com.google.bean.UserBean;
 import com.google.dao.UserDao;
+import com.google.service.EmailService;
 import com.google.util.OtpGenerator;
 
 //annotation 
@@ -18,6 +19,10 @@ public class SessionController {
 
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	EmailService emailService;
+	
 
 	// jsp open
 	@GetMapping("/signup")
@@ -101,6 +106,7 @@ public class SessionController {
 			userDao.updateOtp(forgetPasswordBean.getEmail(), otp);
 			//user set --> email 
 			//send mail 
+			emailService.sendEmailForForgetPassword(forgetPasswordBean.getEmail(), otp);
 			return "UpdatePassword";
 		}
 		
