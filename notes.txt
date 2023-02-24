@@ -211,6 +211,10 @@ Task :
 ----------------------------------------------------------------------------------
 24-2-2023
 
+https://us02web.zoom.us/rec/share/mXWC4tAP4PfC7hUavl79x24h_AoAwvW33TONeLoUhmAY-el9wrslFWCKTU54bulj.RwKi4VZEqPej5jeI?startTime=1677210718000
+Passcode: U..hiKm3
+
+
 user -> forgetpassword link click ->
 				forgetpassword url 
 						ForgetPassword.jsp 
