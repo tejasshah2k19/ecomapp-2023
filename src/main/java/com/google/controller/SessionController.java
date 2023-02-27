@@ -50,6 +50,7 @@ public class SessionController {
 		return "Login";// JSP NAME
 	}
 
+	//on submit of Login.jsp 
 	@PostMapping("/authentication")
 	public String authentication(LoginBean login, Model model) {
 		System.out.println(login.getEmail());

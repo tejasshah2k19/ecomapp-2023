@@ -238,6 +238,43 @@ how to send email using gmail
 	3) java 
 	
 	
+--------------------------------------------------------
+27-02-2023
+
+1) create category table - database 
+2) now create =>  CategoryBean , CategoryDao , CategoryController 
+3) categorycontroller -> newcategory url 
+4) categorycontroller -> savecategory url 
+	4.1) categoryDao -> addCategory() 
+	
+5) listcategories -> url 
+	5.1) categoryDao->getAllCAtegory() { List } 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	

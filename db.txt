@@ -31,7 +31,13 @@ alter table users add otp varchar(10);
 update user set otp = ? where email = ? 
 
 
+-----------------------------------------
 
+create table category(
+	categoryId integer primary key auto_increment,
+	categoryName varchar(30),
+	deleted boolean  
+);
 
 
 

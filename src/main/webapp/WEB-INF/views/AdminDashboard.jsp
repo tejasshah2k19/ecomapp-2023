@@ -9,5 +9,10 @@
 <body>
 
 <h2>Admin Dashboard</h2>
+
+<a href="newcategory">Add New Category</a> 
+<br>
+<a href="listcategories">List Category</a> 
+
 </body>
 </html>
