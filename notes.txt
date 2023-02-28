@@ -263,10 +263,11 @@ Passcode: XvH*aA0M
 	4.1) newsubcategory - url 
 			NewSubCategory 
 				SubCategory : [  ] 
+				Category : [dropdown] 
 					submit 
 
-
-					
+	4.2)
+			
 ------------------------------------------
 					
 					

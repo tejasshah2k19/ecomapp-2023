@@ -27,7 +27,7 @@ public class CategoryController {
 	public String saveCategory(CategoryBean categoryBean) {
 		System.out.println(categoryBean.getCategoryName());// categoryName;
 		categoryDao.addCategory(categoryBean);
-		return "NewCategory";
+		return "redirect:/listcategories";
 	}
 
 	@GetMapping("/listcategories")
