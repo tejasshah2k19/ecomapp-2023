@@ -1,3 +1,5 @@
+<%@page import="com.google.bean.CategoryBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,9 +10,12 @@
 </head>
 <body>
 <h3>List Category</h3>
+ 
+ <%
+	List<CategoryBean> list =  (List<CategoryBean>)request.getAttribute("list");
+ %>
 
-
-<table>
+<table border="1">
 
 	<tr>
 		<th>CategoryId</th>
@@ -18,11 +23,15 @@
 		<th>Deleted?</th>
 	</tr>
 
+
+<%for(CategoryBean cb:list){ %>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><%=cb.getCategoryId() %></td>
+		<td><%=cb.getCategoryName() %></td>
+		<td><%=cb.getDeleted()%></td>
 	</tr>
+	
+	<%} %>
 	
 
 </table>

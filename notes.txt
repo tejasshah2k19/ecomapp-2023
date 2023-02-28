@@ -247,9 +247,31 @@ how to send email using gmail
 4) categorycontroller -> savecategory url 
 	4.1) categoryDao -> addCategory() 
 	
-5) listcategories -> url 
+5)** listcategories -> url 
 	5.1) categoryDao->getAllCAtegory() { List } 
 		
+
+------------------------------------------
+
+28-02-2023
+
+1) create subcategory table -- database 
+2) SubCategoryBean -> table fields - getter setters 
+3) SubCategoryDao -> @Repository 
+4) SubCategoryController -> @Controller 
+	4.1) newsubcategory - url 
+			NewSubCategory 
+				SubCategory : [  ] 
+					submit 
+
+
+					
+------------------------------------------
+					
+					
+					
+					
+					 
 
 
 

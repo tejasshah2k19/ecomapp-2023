@@ -39,6 +39,13 @@ create table category(
 	deleted boolean  
 );
 
+create table subcategory(
+	subCategoryId integer primary key auto_increment,
+	subCategoryName varchar(30),
+	categoryId integer references category(categoryId)
+);
+
+ 
 
 
 
