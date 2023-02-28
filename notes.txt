@@ -250,7 +250,8 @@ how to send email using gmail
 5)** listcategories -> url 
 	5.1) categoryDao->getAllCAtegory() { List } 
 		
-
+https://us02web.zoom.us/rec/share/USnxZ9YrOwhD86niO7r4wFeBG7wKBt841F67TNbUJ7rPvvUp4JlXq_BBr5iWEPkZ.7Rq3jEDP_IaleAV4?startTime=1677468378000
+Passcode: XvH*aA0M
 ------------------------------------------
 
 28-02-2023

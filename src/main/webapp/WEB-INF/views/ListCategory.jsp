@@ -24,6 +24,7 @@
 	</tr>
 
 
+
 <%for(CategoryBean cb:list){ %>
 	<tr>
 		<td><%=cb.getCategoryId() %></td>
