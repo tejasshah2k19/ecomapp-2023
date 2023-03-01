@@ -21,6 +21,7 @@
 		<th>CategoryId</th>
 		<th>CategoryName</th>
 		<th>Deleted?</th>
+		<th>Action</th>
 	</tr>
 
 
@@ -30,6 +31,7 @@
 		<td><%=cb.getCategoryId() %></td>
 		<td><%=cb.getCategoryName() %></td>
 		<td><%=cb.getDeleted()%></td>
+		<td><a href="deletecategory/<%=cb.getCategoryId() %>">Delete</a></td>
 	</tr>
 	
 	<%} %>

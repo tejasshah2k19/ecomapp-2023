@@ -31,7 +31,8 @@ public class SubCategoryController {
 		//dao 
 		//insert 
 		
-		return "NewCategory";
+		return "redirect:/listsubcategory";
 	}
 
+	//listsubcategory 
 }
