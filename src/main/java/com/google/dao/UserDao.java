@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
+import com.google.bean.UpdatePasswordBean;
 import com.google.bean.UserBean;
 
 @Repository
@@ -58,7 +59,27 @@ public class UserDao {
 			String updateOtpQuery = "update users set otp = ? where email = ?";
 			stmt.update(updateOtpQuery,otp,email);
 	}
+	
+	public void updateMyPassword(UpdatePasswordBean upBean) {
+		String updateQuery = "update users set password = ? , otp = ? where email = ? ";
+		stmt.update(updateQuery,upBean.getPassword(),"",upBean.getEmail());
+	}
 
+	
+	public UserBean verifyOtpByEmail(UpdatePasswordBean upBean) {
+		try {
+			String otpQuery = "select * from users where email = ? and otp = ? ";
+			UserBean user = stmt.queryForObject(otpQuery, new BeanPropertyRowMapper<UserBean>(UserBean.class),
+					new Object[] { upBean.getEmail(), upBean.getOtp() });
+
+			return user;
+		} catch (Exception e) {
+			System.out.println("SMW --> UserDao::verifyOtpByEmail()");
+			System.out.println(e.getMessage()); 
+		}
+		return null;
+	}
+	
 }
 
 

@@ -20,15 +20,14 @@ public class SessionController {
 
 	@Autowired
 	UserDao userDao;
-	
+
 	@Autowired
 	EmailService emailService;
-	
 
 	// jsp open
 	@GetMapping("/signup")
 	public String signup() {
-		return "Signup"; //JSP 
+		return "Signup"; // JSP
 	}
 
 	// jsp input process
@@ -51,7 +50,7 @@ public class SessionController {
 		return "Login";// JSP NAME
 	}
 
-	//on submit of Login.jsp 
+	// on submit of Login.jsp
 	@PostMapping("/authentication")
 	public String authentication(LoginBean login, Model model) {
 		System.out.println(login.getEmail());
@@ -91,46 +90,54 @@ public class SessionController {
 	}
 
 	@PostMapping("/sendotpforforgetpassword")
-	public String sendOtpForForgetPassword(ForgetPasswordBean forgetPasswordBean,Model model) {
+	public String sendOtpForForgetPassword(ForgetPasswordBean forgetPasswordBean, Model model) {
 		System.out.println(forgetPasswordBean.getEmail());
-		
-		UserBean user =   userDao.findUserByEmail(forgetPasswordBean);
-		if(user == null) {
-			//error 
-			model.addAttribute("error","Invalid Email");
+
+		UserBean user = userDao.findUserByEmail(forgetPasswordBean);
+		if (user == null) {
+			// error
+			model.addAttribute("error", "Invalid Email");
 			return "ForgetPassword";
-		}else {
-			//otp 
-			//generate otp
-			//int otp = (int)(Math.random()*1000000);
-			
-			String otp  = OtpGenerator.generateOTP(6);
+		} else {
+			// otp
+			// generate otp
+			// int otp = (int)(Math.random()*1000000);
+
+			String otp = OtpGenerator.generateOTP(6);
 			userDao.updateOtp(forgetPasswordBean.getEmail(), otp);
-			//user set --> email 
-			//send mail 
+			// user set --> email
+			// send mail
 			emailService.sendEmailForForgetPassword(forgetPasswordBean.getEmail(), otp);
 			return "redirect:/updatepasswordjspopen";
-		
+
 		}
-		
+
 	}
-	
+
 	@GetMapping("/updatepasswordjspopen")
 	public String updatePasswordJspOpen() {
 		return "UpdatePassword";
-		
+
 	}
-	
+
 	@PostMapping("/updatemypassword")
 	public String udpateMyPassword(UpdatePasswordBean upBean) {
 		System.out.println(upBean.getEmail());
 		System.out.println(upBean.getPassword());
 		System.out.println(upBean.getOtp());
+
+		//email otp password confirmpassword  - nt blank
+		//password  - confirmpassword 
+		// otp == dbOtp
+
+		UserBean user = userDao.verifyOtpByEmail(upBean);
+		if (user == null) {
+			return "UpdatePassword";
+		} else {
+			userDao.updateMyPassword(upBean);
+			return "Login";
+		}
 		
-		return "Login";
 	}
 
-	
-	
-	
 }
