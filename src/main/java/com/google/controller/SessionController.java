@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.google.bean.ForgetPasswordBean;
 import com.google.bean.LoginBean;
+import com.google.bean.UpdatePasswordBean;
 import com.google.bean.UserBean;
 import com.google.dao.UserDao;
 import com.google.service.EmailService;
@@ -108,10 +109,28 @@ public class SessionController {
 			//user set --> email 
 			//send mail 
 			emailService.sendEmailForForgetPassword(forgetPasswordBean.getEmail(), otp);
-			return "UpdatePassword";
+			return "redirect:/updatepasswordjspopen";
+		
 		}
 		
+	}
+	
+	@GetMapping("/updatepasswordjspopen")
+	public String updatePasswordJspOpen() {
+		return "UpdatePassword";
 		
 	}
+	
+	@PostMapping("/updatemypassword")
+	public String udpateMyPassword(UpdatePasswordBean upBean) {
+		System.out.println(upBean.getEmail());
+		System.out.println(upBean.getPassword());
+		System.out.println(upBean.getOtp());
+		
+		return "Login";
+	}
 
+	
+	
+	
 }

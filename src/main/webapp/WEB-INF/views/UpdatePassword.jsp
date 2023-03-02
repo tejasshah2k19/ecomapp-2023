@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="" method="post">
+	<form action="updatemypassword" method="post">
 	 
 		Email :<input type="email" name="email"><br><br>
 		Password : <input type="password" name="password"><br><br>

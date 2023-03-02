@@ -17,7 +17,7 @@ public class EmailService {
 	public  void sendEmailForForgetPassword(String email,String otp) {
 
 		final String from = "tejasshah2k19@gmail.com";// from address
-		final String appPassword = "bfngzdwelyzbfmld"; // tejas123
+		final String appPassword = "qvtesmkdtjjwvtfo"; // tejas123
 
 		Properties prop = System.getProperties();
 
