@@ -1,0 +1,139 @@
+git -- tool 
+website --- github.com , bitbucket , gitlab , 
+
+
+a 
+	login 
+	signup
+	
+b
+	forgetpassword 
+	upatepassword 
+	login**
+
+	
+1) team share 
+2) share 
+3) version control
+
+
+ 
+a 
+    local repo
+	login -> upload -> push  -> www.github.com -> repository [ remote repo ]  
+	
+	local repo 
+b	->  download  -> pull   -> www.github.com -> repository  [ remote repo ]
+
+-----------------------------
+
+1) local repo
+2) remote repo 
+
+
+1) local repo 
+	git init
+
+2) github.com 
+	create repo 
+
+3) after repo created 
+	git remote add -> copy -> local repo -> paste 
+	
+
+
+
+git add  -> track -> send 
+
+4) git add data.txt data2.txt golmal.txt 
+
+5) india vs pakistan 
+	git status 
+	
+6) git commit -m "login" data.txt data2.txt 
+   git commit -m "signup" golmal.txt 
+   
+7) upload 
+	git push origin master 
+	
+	
+8)**
+	japan 
+		git clone XXXXXX 
+		
+	code modify 
+		git add 
+		git commit 
+		git push 
+		
+9) india 
+		git pull 
+		
+		
+----------------------------------
+https://git-scm.com/download/win
+
+download - install 
+
+github.com -> signup -> login 
+			-> create repo remote repo 
+
+
+project -> root folder --> git init --> local repo 
+							git add remote origin  [ copy paste ] 
+							git add src pom XXXX 
+							git commit -m "init -"  . 
+							git push origin master 
+							
+							
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
