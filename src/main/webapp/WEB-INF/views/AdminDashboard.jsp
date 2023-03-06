@@ -13,6 +13,8 @@
 <a href="newcategory">Add New Category</a> 
 <br>
 <a href="listcategories">List Category</a> 
+<br>
+<a href="newsubcategory">New Subcategory</a>
 
 </body>
 </html>

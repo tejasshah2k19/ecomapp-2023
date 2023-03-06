@@ -5,6 +5,7 @@ public class SubCategoryBean {
 	Integer subCategoryId, categoryId;
 	String subCategoryName;
 	boolean deleted;
+	String categoryName;
 
 	public Integer getSubCategoryId() {
 		return subCategoryId;
@@ -36,6 +37,14 @@ public class SubCategoryBean {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 }

@@ -31,7 +31,10 @@
 		<td><%=cb.getCategoryId() %></td>
 		<td><%=cb.getCategoryName() %></td>
 		<td><%=cb.getDeleted()%></td>
-		<td><a href="deletecategory/<%=cb.getCategoryId() %>">Delete</a></td>
+		<td><a href="deletecategory/<%=cb.getCategoryId() %>">Delete</a> |
+		<a href="viewcategory/<%=cb.getCategoryId() %>">View</a>
+		
+		</td>
 	</tr>
 	
 	<%} %>

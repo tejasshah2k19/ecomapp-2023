@@ -39,15 +39,32 @@ create table category(
 	deleted boolean  
 );
 
-create table subcategory(
-	subCategoryId integer primary key auto_increment,
-	subCategoryName varchar(30),
-	categoryId integer references category(categoryId)
-);
+	create table subcategory(
+		subCategoryId integer primary key auto_increment,
+		subCategoryName varchar(30),
+		categoryId integer references category(categoryId)
+	);
 
- 
+alter table subcategory add deleted boolean; 
+
+-----------------------------------------
+
+category 
+	categoryId 
+
+subcategory 
+	categoryId s
 
 
+select categoryName,subcategoryname from category,subcategory; 
+
+
+select category.categoryName , category.categoryId , 
+subcategory.subcategoryId, subcategory.subcategoryname,
+subcategory.deleted 
+from category,subcategory
+where category.categoryId = subcategory.categoryId
+; 
 
 
 
