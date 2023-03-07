@@ -15,6 +15,8 @@
 <a href="listcategories">List Category</a> 
 <br>
 <a href="newsubcategory">New Subcategory</a>
+<br>
+<a href="logout">Logout</a>
 
 </body>
 </html>

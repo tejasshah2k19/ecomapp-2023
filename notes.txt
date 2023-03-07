@@ -270,10 +270,14 @@ Passcode: XvH*aA0M
 			
 ------------------------------------------
 					
+user's info =>
+		1)	cookie  | browser | client  
+		2) 	session | server  | 				
 					
 					
-					
-					 
+		Cookie c = new Cookie("firstName","XXX"); 
+		response.addCookie(c); 
+							 
 
 
 
