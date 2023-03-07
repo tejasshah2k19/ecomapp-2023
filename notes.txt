@@ -278,8 +278,12 @@ user's info =>
 		Cookie c = new Cookie("firstName","XXX"); 
 		response.addCookie(c); 
 							 
-
-
+		HttpSession session; ==> argument 
+		session.setAttribute("userId",userBean.getUserId());
+		
+		
+		
+		
 
 
 

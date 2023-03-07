@@ -2,6 +2,9 @@ package com.google.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +22,26 @@ public class CategoryController {
 	CategoryDao categoryDao;
 
 	@GetMapping("/newcategory") // url--browser
-	public String newCategory() { // method
+	public String newCategory(HttpServletRequest request) { // method
+
+		// cookie name
+		// cookie userid
+		int userId=-1;
+		// read all cookies from request
+		String firstName="";
+		Cookie c[] = request.getCookies();//jSEssionId userId octo firstName 
+
+		for (Cookie x : c) {// jsessionid userId firstname
+			if (x.getName().equals("userId")) {
+				userId = Integer.parseInt(x.getValue());
+			}
+			if (x.getName().equals("firstName")) {
+				firstName = x.getValue();
+			}
+		}
+
+		System.out.println("userId -> " + userId);
+		System.out.println("firstName -> " + firstName);
 
 		return "NewCategory";// jsp--open
 	}
@@ -36,26 +58,22 @@ public class CategoryController {
 
 		// pull all category from db-table
 		List<CategoryBean> list = categoryDao.getAllCategory();
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 		return "ListCategory";
 	}
 
 	@GetMapping("/deletecategory/{categoryId}")
 	public String deleteCategory(@PathVariable("categoryId") Integer categoryId) {
-		//12 45 
+		// 12 45
 		categoryDao.deleteCategory(categoryId);
 		return "redirect:/listcategories";//
 	}
-	
+
 	@GetMapping("/viewcategory/{categoryId}")
-	public String viewCategory(@PathVariable("categoryId") Integer categoryId,Model model) {
+	public String viewCategory(@PathVariable("categoryId") Integer categoryId, Model model) {
 		CategoryBean categoryBean = categoryDao.getCategoryById(categoryId);
-		model.addAttribute("categoryBean",categoryBean);
+		model.addAttribute("categoryBean", categoryBean);
 		return "ViewCategory";
 	}
-	
-	
-	
-	
-	
+
 }
