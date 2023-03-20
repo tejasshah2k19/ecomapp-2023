@@ -85,6 +85,8 @@
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <div style="color:red;" >${error}</div>
+                      
                     </div>
 
                    

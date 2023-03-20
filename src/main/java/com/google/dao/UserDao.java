@@ -36,11 +36,11 @@ public class UserDao {
 			return user;
 		} catch (Exception e) {
 			System.out.println("SMW --> UserDao::authenticateUser()");
-			System.out.println(e.getMessage()); 
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
-	
+
 	public UserBean findUserByEmail(ForgetPasswordBean forgetPasswordBean) {
 		try {
 			String selectEmailQuery = "select * from users where email = ?";
@@ -50,22 +50,21 @@ public class UserDao {
 			return user;
 		} catch (Exception e) {
 			System.out.println("SMW --> UserDao::authenticateUser()");
-			System.out.println(e.getMessage()); 
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
 
-	public void updateOtp(String email,String otp) {
-			String updateOtpQuery = "update users set otp = ? where email = ?";
-			stmt.update(updateOtpQuery,otp,email);
-	}
-	
-	public void updateMyPassword(UpdatePasswordBean upBean) {
-		String updateQuery = "update users set password = ? , otp = ? where email = ? ";
-		stmt.update(updateQuery,upBean.getPassword(),"",upBean.getEmail());
+	public void updateOtp(String email, String otp) {
+		String updateOtpQuery = "update users set otp = ? where email = ?";
+		stmt.update(updateOtpQuery, otp, email);
 	}
 
-	
+	public void updateMyPassword(UpdatePasswordBean upBean) {
+		String updateQuery = "update users set password = ? , otp = ? where email = ? ";
+		stmt.update(updateQuery, upBean.getPassword(), "", upBean.getEmail());
+	}
+
 	public UserBean verifyOtpByEmail(UpdatePasswordBean upBean) {
 		try {
 			String otpQuery = "select * from users where email = ? and otp = ? ";
@@ -75,29 +74,19 @@ public class UserDao {
 			return user;
 		} catch (Exception e) {
 			System.out.println("SMW --> UserDao::verifyOtpByEmail()");
-			System.out.println(e.getMessage()); 
+			System.out.println(e.getMessage());
 		}
 		return null;
 	}
-	
+
+	public UserBean getUserByEmail(String email) {
+		String selectQuery = "select * from users where email  = ?";
+		try {
+		return stmt.queryForObject(selectQuery, new BeanPropertyRowMapper<UserBean>(UserBean.class),
+				new Object[] { email });
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

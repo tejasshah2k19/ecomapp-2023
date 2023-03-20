@@ -36,15 +36,23 @@ public class SessionController {
 
 	// jsp input process
 	@PostMapping("/saveuser")
-	public String saveUser(UserBean user) {
+	public String saveUser(UserBean user,Model model) {
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
 
 		// validation
+
 		// dbValidation
-		// insert
-		userDao.insertUser(user);
-		return "Login"; // EmployeeLogin.jsp
+		// x@x.com present ?
+		UserBean userBean = userDao.getUserByEmail(user.getEmail());
+		if (userBean == null) {
+			// insert
+			userDao.insertUser(user);
+			return "Login"; // EmployeeLogin.jsp
+		}else {
+			model.addAttribute("error","Email is already Registerd with Us");
+			return "Signup";
+		}
 	}
 
 	// calculateTempSalary()
@@ -56,7 +64,7 @@ public class SessionController {
 
 	// on submit of Login.jsp
 	@PostMapping("/authentication")
-	public String authentication(LoginBean login, Model model,HttpServletResponse response,HttpSession session) {
+	public String authentication(LoginBean login, Model model, HttpServletResponse response, HttpSession session) {
 		System.out.println(login.getEmail());
 		System.out.println(login.getPassword());
 
@@ -70,21 +78,20 @@ public class SessionController {
 			return "Login";
 		} else {
 			// valid
-			
-			//cookie 
-			Cookie c1 = new Cookie("userId",userBean.getUserId()+"");
+
+			// cookie
+			Cookie c1 = new Cookie("userId", userBean.getUserId() + "");
 			Cookie c2 = new Cookie("firstName", userBean.getFirstName());
-			//add cookie 
+			// add cookie
 			response.addCookie(c1);
 			response.addCookie(c2);
-			
-			
-			//session 
+
+			// session
 			session.setAttribute("userId", userBean.getUserId());
-			
-			//max inactive interval time 
-			session.setMaxInactiveInterval(60*5);//second 
-			
+
+			// max inactive interval time
+			session.setMaxInactiveInterval(60 * 5);// second
+
 			if (userBean.getRole() == 1) {
 				// admin
 				return "redirect:/admindashboard";
@@ -145,8 +152,8 @@ public class SessionController {
 		System.out.println(upBean.getPassword());
 		System.out.println(upBean.getOtp());
 
-		//email otp password confirmpassword  - nt blank
-		//password  - confirmpassword 
+		// email otp password confirmpassword - nt blank
+		// password - confirmpassword
 		// otp == dbOtp
 
 		UserBean user = userDao.verifyOtpByEmail(upBean);
@@ -156,15 +163,13 @@ public class SessionController {
 			userDao.updateMyPassword(upBean);
 			return "Login";
 		}
-		
+
 	}
 
-  @GetMapping("/logout")
-  public String logout(HttpSession session) {
-	  session.invalidate();//destroy session
-	  return "redirect:/login";
-  }
-	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();// destroy session
+		return "redirect:/login";
+	}
+
 }
-
-
