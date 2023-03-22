@@ -42,36 +42,36 @@
 
 
 						<!-- Table with stripped rows -->
-						 
-							<div class="datatable-container">
-								<table class="table datatable" id="listcategory">
-									<thead>
-										<tr>
-											<th>CategoryId</th>
-											<th>CategoryName</th>
-											<th>Deleted?</th>
-											<th>Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-											for (CategoryBean cb : list) {
-										%>
-										<tr>
-											<td><%=cb.getCategoryId()%></td>
-											<td><%=cb.getCategoryName()%></td>
-											<td><%=cb.getDeleted()%></td>
-											<td><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
-												| <a href="viewcategory?categoryId=<%=cb.getCategoryId()%>">View</a></td>
-										</tr>
 
-										<%
-											}
-										%>
-									</tbody>
-								</table>
-							</div>
-						 
+						<div class="datatable-container">
+							<table class="table datatable" id="listcategory">
+								<thead>
+									<tr>
+										<th>CategoryId</th>
+										<th>CategoryName</th>
+										<th>Deleted?</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (CategoryBean cb : list) {
+									%>
+									<tr>
+										<td><%=cb.getCategoryId()%></td>
+										<td><%=cb.getCategoryName()%></td>
+										<td><%=cb.getDeleted()%></td>
+										<td><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
+											| <a href="viewcategory?categoryId=<%=cb.getCategoryId()%>">View</a></td>
+									</tr>
+
+									<%
+										}
+									%>
+								</tbody>
+							</table>
+						</div>
+
 
 					</div>
 				</div>
@@ -81,8 +81,9 @@
 	</section>
 	</main>
 
-<jsp:include page="AllJs.jsp"></jsp:include>
- 
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+	<jsp:include page="AllJs.jsp"></jsp:include>
+
 
 </body>
 </html>

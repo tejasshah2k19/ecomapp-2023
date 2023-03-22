@@ -66,6 +66,47 @@ from category,subcategory
 where category.categoryId = subcategory.categoryId
 ; 
 
+-------------------------------------
+create table address(
+addresId integer primary key auto_increment,
+addressLine varchar(300),
+landMark varchar(150),
+pincode varchar(7),
+city varchar(30),
+state varchar(22),
+userId integer ,
+defaultInd boolean
+);
+
+create table orders(
+orderId integer primary key auto_increment,
+userId integer,
+orderDate varchar(15),
+totalAmount float,
+addressId integer,
+status integer
+);
+
+
+alter table users add gender varchar(6);
+alter table users add dob varchar(20);
+alter table users add createdAt varchar(20);
+alter table users add contactNum varchar(20);
+alter table users add active boolean;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

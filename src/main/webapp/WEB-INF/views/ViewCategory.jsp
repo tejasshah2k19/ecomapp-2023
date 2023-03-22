@@ -63,8 +63,8 @@
 	</section>
 	</main>
 
+<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
-
 
 </body>
 </html>
