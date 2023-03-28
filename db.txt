@@ -38,14 +38,26 @@ create table category(
 	categoryName varchar(30),
 	deleted boolean  
 );
+ 
+
+ SHOW VARIABLES LIKE "secure_file_priv";
+ 
+ put your csv file in above given path
+
+LOAD DATA  INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/category.csv" INTO TABLE category FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS (categoryName,deleted) ;
+
+insert into category (categoryName) values ('Electronics') ,  
 
 	create table subcategory(
 		subCategoryId integer primary key auto_increment,
 		subCategoryName varchar(30),
-		categoryId integer references category(categoryId)
+		categoryId integer references category(categoryId),
+		deleted boolean
 	);
 
-alter table subcategory add deleted boolean; 
+LOAD DATA  INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/subCategory.csv" INTO TABLE subcategory FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS (subCategoryName,categoryId,deleted) ;
+ 
+
 
 -----------------------------------------
 
@@ -95,8 +107,24 @@ alter table users add contactNum varchar(20);
 alter table users add active boolean;
 
 
+----------------------------
+create table products(
+productId integer primary key auto_increment, 
+name varchar(30),
+description varchar(150),
+categoryId integer,
+subCategoryId integer,
+qty integer,
+price float,
+topSellingInd boolean,
+mostValueInd boolean,
+brandName varchar(30),
+productDetailDescriptionURL varchar(256),
+deleted boolean
+);
 
-
+LOAD DATA  INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/products.csv" INTO TABLE products FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS (name,description,subCategoryId,categoryId,deleted,qty,price,topSellingInd,mostValueInd,brandName) ;
+ 
 
 
 

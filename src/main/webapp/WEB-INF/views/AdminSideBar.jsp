@@ -38,6 +38,28 @@
 		<li class="nav-item"><a class="nav-link collapsed"
 			href="listcategories"> <i class="bi bi-person"></i> <span>Category</span>
 		</a></li>
+		
+		<li class="nav-item"><a class="nav-link collapsed"
+			href="listsubcategory"> <i class="bi bi-person"></i> <span>SubCategory</span>
+		</a></li>
+		
+		<li class="nav-item"><a class="nav-link collapsed"
+			href="liststatus"> <i class="bi bi-person"></i> <span>Status</span>
+		</a></li>
+		
+		
+		<li class="nav-item"><a class="nav-link collapsed"
+			href="listproduct"> <i class="bi bi-person"></i> <span>Product</span>
+		</a></li>
+		 
+		<li class="nav-item"><a class="nav-link collapsed"
+			href="listcategories"> <i class="bi bi-person"></i> <span>Orders</span>
+		</a></li>
+		
+		
+		
+		
+		
 		<!-- End Profile Page Nav -->
 
 

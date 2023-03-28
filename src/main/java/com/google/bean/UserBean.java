@@ -11,7 +11,7 @@ public class UserBean {
 	private String gender;
 	private String dob;
 	private String createdAt;
-	private boolean active;
+	private Boolean active;
 	private String contactNum;
 	
 	
@@ -75,12 +75,13 @@ public class UserBean {
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public boolean isActive() {
+	public Boolean isActive() {
 		return active;
 	}
-	public void setActive(boolean active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
+	
 	public String getContactNum() {
 		return contactNum;
 	}

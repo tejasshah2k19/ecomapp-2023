@@ -7,32 +7,105 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>eComApp | New SubCategory</title>
+<jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
 
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="AdminSideBar.jsp"></jsp:include>
 
-	<%
-		List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list");
-	%>
 
-	<form action="savesubcategory" method="post">
-		SubCategoryName : <input type="text" name="subCategoryName"/> 
-		
-		<br><BR>
-		 Category <select name="categoryId">
+	<main id="main" class="main">
+	<div class="pagetitle">
+		<h1>Sub Category</h1>
+		<nav>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+				<li class="breadcrumb-item">SubCategory</li>
+				<li class="breadcrumb-item active">New</li>
+			</ol>
+		</nav>
+	</div>
 
-			<%
-				for (CategoryBean cb : list) {
-			%>
-			<option value="<%=cb.getCategoryId()%>">
-				<%=cb.getCategoryName()%></option>
-			<%
-				}
-			%>
-		</select><br><br>
-		
-		<input type="submit" value="Add SubCategory"/>
-	</form>
+
+
+	<section class="section">
+		<div class="row">
+			<div class="col-lg-12">
+
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">New SubCategory</h5>
+
+						<%
+							List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list");
+						%>
+
+						<form action="savesubcategory" method="post">
+							<div class="row mb-3">
+								<label for="inputText" class="col-sm-2 col-form-label">SubCategoryName
+								</label>
+								<div class="col-sm-6">
+									<input type="text" name="subCategoryName" class="form-control">
+								</div>
+							</div>
+
+							<div class="row mb-3">
+								<label class="col-sm-2 col-form-label">Category</label>
+								<div class="col-sm-6">
+									<select name="categoryId" class="form-select"
+										aria-label="Default select example">
+										<option selected="">Select Category</option>
+										<%
+											for (CategoryBean cb : list) {
+										%>
+										<option value="<%=cb.getCategoryId()%>">
+											<%=cb.getCategoryName()%></option>
+										<%
+											}
+										%>
+									</select>
+								</div>
+							</div>
+
+							<div class="row mb-3">
+								<div class="col-2"></div>
+								<div class="col-2">
+									<button class="btn btn-primary w-100" type="submit">Save
+										SubCategory</button>
+
+								</div>
+								<div class="col-2">
+									<a class="btn btn-danger w-100" href="listsubcategory"
+										type="button">Cancel</a>
+
+								</div>
+
+							</div>
+
+
+
+						</form>
+
+
+
+						<!-- Table with stripped rows -->
+
+						<br> <a href="listsubcategory"> <i
+							class="bi bi-arrow-left"></i> BACK
+						</a>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	</main>
+
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+	<jsp:include page="AllJs.jsp"></jsp:include>
+
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>eComApp | New Category</title>
+<title>eComApp | Edit Category</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -22,7 +22,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
 				<li class="breadcrumb-item">Category</li>
-				<li class="breadcrumb-item active">New</li>
+				<li class="breadcrumb-item active">Edit</li>
 			</ol>
 		</nav>
 	</div>
@@ -35,15 +35,16 @@
 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">New Category</h5>
+						<h5 class="card-title">Edit Category</h5>
 
 
-						<form action="savecategory" method="post">
+						<form action="updatecategory" method="post">
+							<input type="hidden" name="categoryId" value="${categoryBean.categoryId}"/>
 							<div class="row mb-3">
 								<label for="inputText" class="col-sm-2 col-form-label">Category
 									Name</label>
 								<div class="col-sm-6">
-									<input type="text" name="categoryName" class="form-control">
+									<input type="text" name="categoryName" value="${categoryBean.categoryName}" class="form-control">
 								</div>
 							</div>
 
@@ -52,7 +53,7 @@
 							<div class="row mb-3">
 								<div class="col-2"></div>
 								<div class="col-2">
-									<button class="btn btn-primary w-100" type="submit">Save
+									<button class="btn btn-primary w-100" type="submit">Update
 										Category</button>
 
 								</div>

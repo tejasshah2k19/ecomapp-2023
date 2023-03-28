@@ -1,4 +1,3 @@
-<%@page import="com.google.bean.CategoryBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -6,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>eComApp | New Category</title>
+<title>eComApp | New Status</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -17,11 +16,11 @@
 
 	<main id="main" class="main">
 	<div class="pagetitle">
-		<h1>Category</h1>
+		<h1>Status</h1>
 		<nav>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-				<li class="breadcrumb-item">Category</li>
+				<li class="breadcrumb-item">Status</li>
 				<li class="breadcrumb-item active">New</li>
 			</ol>
 		</nav>
@@ -35,15 +34,15 @@
 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">New Category</h5>
+						<h5 class="card-title">New Status</h5>
 
 
-						<form action="savecategory" method="post">
+						<form action="savestatus" method="post">
 							<div class="row mb-3">
-								<label for="inputText" class="col-sm-2 col-form-label">Category
-									Name</label>
+								<label for="inputText" class="col-sm-2 col-form-label">Status
+									 </label>
 								<div class="col-sm-6">
-									<input type="text" name="categoryName" class="form-control">
+									<input type="text" name="status" class="form-control">
 								</div>
 							</div>
 
@@ -53,11 +52,11 @@
 								<div class="col-2"></div>
 								<div class="col-2">
 									<button class="btn btn-primary w-100" type="submit">Save
-										Category</button>
+										Status</button>
 
 								</div>
 								<div class="col-2">
-									<a class="btn btn-danger w-100" href="listcategories" type="button">Cancel</a>
+									<a class="btn btn-danger w-100" href="liststatus" type="button">Cancel</a>
 
 								</div>
 
@@ -71,7 +70,7 @@
 
 						<!-- Table with stripped rows -->
 
-						<br> <a href="listcategories"> <i
+						<br> <a href="liststatus"> <i
 							class="bi bi-arrow-left"></i> BACK
 						</a>
 

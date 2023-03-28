@@ -43,16 +43,24 @@
 							CategoryBean categoryBean = (CategoryBean) request.getAttribute("categoryBean");
 						%>
 						<div class="row">
-							<div class="col-lg-3 col-md-4 label "><b>Category Name</b></div>
+							<div class="col-lg-3 col-md-4 label ">
+								<b>Category Name</b>
+							</div>
 							<div class="col-lg-9 col-md-8"><%=categoryBean.getCategoryName()%></div>
 						</div>
 						<div class="row">
-							<div class="col-lg-3 col-md-4 label "><b>Category Status</b></div>
-							<div class="col-lg-9 col-md-8"><%=categoryBean.getDeleted()==true?"ACTIVE":"DISABLE"%></div>
+							<div class="col-lg-3 col-md-4 label ">
+								<b>Category Status</b>
+							</div>
+							<div class="col-lg-9 col-md-8"><%=categoryBean.getDeleted() == true ? "ACTIVE" : "DISABLE"%></div>
 						</div>
 
 
-
+						<br> <a href="listcategories">
+						<i
+							class="bi bi-arrow-left"></i>
+						BACK
+						</a>
 
 
 					</div>
@@ -63,7 +71,7 @@
 	</section>
 	</main>
 
-<jsp:include page="AdminFooter.jsp"></jsp:include>
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
 
 </body>

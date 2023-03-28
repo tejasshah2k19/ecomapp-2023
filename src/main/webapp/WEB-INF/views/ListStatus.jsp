@@ -1,5 +1,4 @@
-<%@page import="com.google.bean.SubCategoryBean"%>
-<%@page import="com.google.bean.CategoryBean"%>
+<%@page import="com.google.bean.StatusBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -7,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>eComApp | List SubCategory</title>
+<title>eComApp | List Status</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -18,11 +17,11 @@
 
 	<main id="main" class="main">
 	<div class="pagetitle">
-		<h1>SubCategory</h1>
+		<h1>Status</h1>
 		<nav>
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-				<li class="breadcrumb-item">SubCategory</li>
+				<li class="breadcrumb-item">Status</li>
 				<li class="breadcrumb-item active">List</li>
 			</ol>
 		</nav>
@@ -30,9 +29,8 @@
 
 
 	<%
-		List<SubCategoryBean> listSubCategory = (List<SubCategoryBean>) request.getAttribute("listSubCategory");
+		List<StatusBean> list = (List<StatusBean>) request.getAttribute("list");
 	%>
-
 
 	<section class="section">
 		<div class="row">
@@ -40,37 +38,43 @@
 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">List SubCategory
-													<a href="newsubcategory"><i class="bi bi-plus-circle-fill"></i></a>
+						<h5 class="card-title">List Status 
 						
+							<a href="newstatus"><i class="bi bi-plus-circle-fill"></i></a>
 						</h5>
 
 
 						<!-- Table with stripped rows -->
 
- 							<table class="table datatable">
+						<div class="datatable-container">
+							<table class="table datatable" id="listStatus">
 								<thead>
 									<tr>
-										<th>SubCategoryName</th>
-										<th>CategoryName</th>
+										 
+										<th>StatusName</th>
 										<th>Action</th>
+										 
 									</tr>
 								</thead>
 								<tbody>
 									<%
-										for (SubCategoryBean sb : listSubCategory) {
+										for (StatusBean cb : list) {
 									%>
 									<tr>
-										<td><%=sb.getSubCategoryName()%></td>
-										<td><%=sb.getCategoryName()%>
-										<td><a type="button" class="btn btn-danger" href="deletesubcategory/<%=sb.getSubCategoryId()%>">DELETE</a></td>
-									</tr>
+										 
+										<td><%=cb.getStatus()%></td>
+										 <td>
+										 	<a href="deletestatus/<%=cb.getStatusId() %>" class="btn btn-danger" type="button">DELETE</a>
+										 </td>
+										 </tr>
+
 									<%
 										}
 									%>
 								</tbody>
 							</table>
-						 
+						</div>
+
 
 					</div>
 				</div>
@@ -82,7 +86,7 @@
 
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
-
+	 
 
 </body>
 </html>

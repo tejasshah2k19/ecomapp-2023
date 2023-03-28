@@ -38,7 +38,10 @@
 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">List Category</h5>
+						<h5 class="card-title">List Category 
+						
+							<a href="newcategory"><i class="bi bi-plus-circle-fill"></i></a>
+						</h5>
 
 
 						<!-- Table with stripped rows -->
@@ -47,9 +50,9 @@
 							<table class="table datatable" id="listcategory">
 								<thead>
 									<tr>
-										<th>CategoryId</th>
+										 
 										<th>CategoryName</th>
-										<th>Deleted?</th>
+										<th>Active</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -58,11 +61,26 @@
 										for (CategoryBean cb : list) {
 									%>
 									<tr>
-										<td><%=cb.getCategoryId()%></td>
+										 
 										<td><%=cb.getCategoryName()%></td>
-										<td><%=cb.getDeleted()%></td>
-										<td><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
-											| <a href="viewcategory?categoryId=<%=cb.getCategoryId()%>">View</a></td>
+										<td>
+											<div class="form-check form-switch">
+
+
+												<input class="form-check-input" onclick="changeStatus(<%=cb.getCategoryId()%>,<%=cb.getDeleted() %>)" type="checkbox"
+													id="flexSwitchCheckChecked"
+													<%=!cb.getDeleted() ? "checked" : ""%>>
+
+											</div>
+										</td>
+										<td><a
+											href="viewcategory?categoryId=<%=cb.getCategoryId()%>"><i class="bi bi-eye"></i>   </a>
+											|
+											
+										<a
+											href="editcategory?categoryId=<%=cb.getCategoryId()%>"><i class="bi bi-pencil"></i>   </a>
+											
+											</td>
 									</tr>
 
 									<%
@@ -83,7 +101,12 @@
 
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
-
+	<script type="text/javascript">
+		function changeStatus(categoryId,currentStatus){
+ 			location.href="deletecategory/"+categoryId+"/"+currentStatus;
+			
+		}
+	</script>
 
 </body>
 </html>

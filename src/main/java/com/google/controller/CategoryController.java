@@ -63,10 +63,10 @@ public class CategoryController {
 		return "ListCategory";
 	}
 
-	@GetMapping("/deletecategory/{categoryId}")
-	public String deleteCategory(@PathVariable("categoryId") Integer categoryId) {
+	@GetMapping("/deletecategory/{categoryId}/{currentStatus}")
+	public String deleteCategory(@PathVariable("categoryId") Integer categoryId,@PathVariable("currentStatus") boolean currentStatus) {
 		// 12 45
-		categoryDao.deleteCategory(categoryId);
+		categoryDao.deleteCategory(categoryId,currentStatus);
 		return "redirect:/listcategories";//
 	}
 
@@ -76,5 +76,21 @@ public class CategoryController {
 		model.addAttribute("categoryBean", categoryBean);
 		return "ViewCategory";
 	}
+	
+	@GetMapping("/editcategory")
+	public String editCategory(@RequestParam("categoryId") Integer categoryId,Model model) {
+		CategoryBean categoryBean = categoryDao.getCategoryById(categoryId);//12
+		model.addAttribute("categoryBean", categoryBean);
+		return "EditCategory";
+	}
+	
+	@PostMapping("/updatecategory")
+	public String updateCategory(CategoryBean categoryBean) {
+		
+		categoryDao.updateCategory(categoryBean);
+
+		return "redirect:/listcategories";
+	}
+	
 
 }
