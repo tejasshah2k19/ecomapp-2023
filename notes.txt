@@ -288,7 +288,10 @@ Passcode: f1E+KKZS
 		
 ----------------------------------
 		
+charts 
 
+
+1) install charts js using cdn in your jsp 
 
 
 

@@ -55,7 +55,7 @@ public class CategoryController {
 	}
 
 	@GetMapping("/listcategories")
-	public String listCategories(Model model) {
+	public String listCategories(Model model) { 
 
 		// pull all category from db-table
 		List<CategoryBean> list = categoryDao.getAllCategory();

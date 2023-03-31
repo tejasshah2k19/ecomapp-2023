@@ -1,10 +1,14 @@
 package com.google.dao;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.google.bean.OrderChartBean;
 
 @Repository
 public class AdminDao {
@@ -79,19 +83,11 @@ public class AdminDao {
 
 	}
 
+	public List<OrderChartBean> getOrderStats() {
+		
+		String selectQ = "select monthname(orderdate) as month , sum(totalAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate) order by month(orderDate)";
+		return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 }
