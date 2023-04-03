@@ -53,9 +53,9 @@
 							<div class="row mb-3">
 								<label class="col-sm-2 col-form-label">Category</label>
 								<div class="col-sm-6">
-									<select name="categoryId" class="form-select"
+									<select name="categoryId" id="categoryId" class="form-select"
 										aria-label="Default select example">
-										<option selected="">Select Category</option>
+										<option  selected="-1">Select Category</option>
 										<%
 											for (CategoryBean cb : list) {
 										%>
@@ -105,7 +105,17 @@
 
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
-
+	<script>
+		
+		function validateSubCategory(){
+			categoryId = document.getElementById("categoryId");
+			isError = false;
+			if(categoryId.value == "-1"){
+				isError = true;
+			}
+		}
+	
+	</script>
 
 </body>
 </html>

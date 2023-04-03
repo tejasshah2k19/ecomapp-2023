@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${cookie.firstName.value }  | Home</title>
+    <title>Welcome</title>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -39,11 +39,11 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="myaccount"><i class="fa fa-user"></i> ${cookie.firstName.value}'s Account</a></li>
-                            <li><a href="wishlist"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="mycart"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="logout"><i class="fa fa-user"></i> Logout</a></li>
+                            <li><a href="login"><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="login"><i class="fa fa-heart"></i> Wishlist</a></li>
+                            <li><a href="login"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="login"><i class="fa fa-user"></i> Checkout</a></li>
+                            <li><a href="login"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>

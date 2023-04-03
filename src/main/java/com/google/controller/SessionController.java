@@ -105,10 +105,9 @@ public class SessionController {
 
 	}
 
-	@GetMapping("/")
-	public String root() {
-		return "Login";
-	}
+	/*
+	 * @GetMapping("/") public String root() { return "Login"; }
+	 */
 
 	@GetMapping("/forgetpassword")
 	public String forgetPassword() {
