@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.bean.ProductBean;
+import com.google.bean.ProductImageBean;
 import com.google.dao.CategoryDao;
 import com.google.dao.ProductDao;
 import com.google.dao.SubCategoryDao;
@@ -64,5 +66,6 @@ public class ProductController {
 		model.addAttribute("product", productBean);
 		return "ViewProduct";
 	}
+
 
 }

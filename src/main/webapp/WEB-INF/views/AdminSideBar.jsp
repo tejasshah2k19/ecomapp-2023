@@ -15,7 +15,7 @@
 
 
 
-		<li class="nav-item"><a class="nav-link collapsed"
+		<!-- <li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"
 			aria-expanded="false"> <i class="bi bi-gem"></i><span>Icons</span><i
 				class="bi bi-chevron-down ms-auto"></i>
@@ -30,7 +30,7 @@
 				</a></li>
 				<li><a href="icons-boxicons.html"> <i class="bi bi-circle"></i><span>Boxicons</span>
 				</a></li>
-			</ul></li>
+			</ul></li> -->
 		<!-- End Icons Nav -->
 
 		<li class="nav-heading">Pages</li>
@@ -56,6 +56,9 @@
 			href="listcategories"> <i class="bi bi-person"></i> <span>Orders</span>
 		</a></li>
 		
+		<li class="nav-item"><a class="nav-link collapsed"
+			href="newproductimage"> <i class="bi bi-person"></i> <span>Images</span>
+		</a></li>
 		
 		
 		

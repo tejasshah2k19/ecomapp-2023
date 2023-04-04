@@ -6,14 +6,14 @@ public class UserBean {
 	private String lastName;
 	private String email;
 	private String password;
-	private Integer role;
+	private Integer role;//1 admin ,2 customer
 	private String otp;
 	private String gender;
 	private String dob;
 	private String createdAt;
 	private Boolean active;
 	private String contactNum;
-	
+	private String imageUrl;
 	
 	public Integer getUserId() {
 		return userId;
@@ -87,6 +87,15 @@ public class UserBean {
 	}
 	public void setContactNum(String contactNum) {
 		this.contactNum = contactNum;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	public Boolean getActive() {
+		return active;
 	} 
 	
 	

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.google.bean.ProductBean;
+import com.google.bean.ProductImageBean;
 
 @Repository
 public class ProductDao {
@@ -40,4 +41,8 @@ public class ProductDao {
 	public void deleteProduct(Integer productId) {
 		stmt.update("update products set deleted = true where productId = ? ", productId);
 	}
+
+
+
+
 }

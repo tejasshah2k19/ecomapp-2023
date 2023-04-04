@@ -59,9 +59,9 @@
 									<th>Qty</th>
 									<th>Brand</th>
 									<th>Price</th>
-									<th>TopSelling</th>
+
 									<th>Action</th>
-		
+
 								</tr>
 							</thead>
 							<tbody>
@@ -75,11 +75,11 @@
 									<td><%=sb.getQty()%>
 									<td><%=sb.getBrandName()%>
 									<td><%=sb.getPrice()%>
-									<td><%=sb.getTopSellingInd()%>
-									
-									
-									<td><a type="button" class="btn btn-danger"
-										href="deleteproduct/<%=sb.getProductId()%>">DELETE</a></td>
+									<td><a class="text-danger"
+										href="deleteproduct/productId=<%=sb.getProductId()%>"><i
+											class="bi bi-trash"></i> </a> | <a class="text-warning"
+										href="uploadimage?productId=<%=sb.getProductId()%>"><i
+											class="bi bi-upload"></i> </a></td>
 								</tr>
 								<%
 									}

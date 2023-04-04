@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.google.bean.OrderChartBean;
+import com.google.bean.ProfileBean;
 
 @Repository
 public class AdminDao {
@@ -88,6 +89,10 @@ public class AdminDao {
 		String selectQ = "select monthname(orderdate) as month , sum(totalAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate) order by month(orderDate)";
 		return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
 
+	}
+
+	public void updateImageUrl(ProfileBean profileBean) {
+		stmt.update("update users set imageUrl = ? where userId = ?",profileBean.getImageUrl(),profileBean.getUserId());
 	}
 
 }

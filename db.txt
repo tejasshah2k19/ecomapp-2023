@@ -126,8 +126,13 @@ deleted boolean
 LOAD DATA  INFILE "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/products.csv" INTO TABLE products FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS (name,description,subCategoryId,categoryId,deleted,qty,price,topSellingInd,mostValueInd,brandName) ;
  
 
+-----------------
 
+create table productimage ( productimageid integer primary key auto_increment,productId integer,imageUrl varchar(512));
 
+-----------------
+
+alter table users add column imageUrl varchar(1024);
 
 
 
