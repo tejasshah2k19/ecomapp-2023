@@ -24,7 +24,9 @@ public class LoginCheckFilter implements Filter {
 
 		String url = ((HttpServletRequest) request).getRequestURI();
 		System.out.println(url);
-		if (url.contains("/assets") || url.contains("/login") || url.contains("/logout") || url.contains("/signup") || url.contains("/forgetpassword") || url.contains("/authentication") || url.contains("/saveuser") || url.contains("/updatepasswordjspopen") || url.contains("/updatemypassword") || url.contains("/sendotpforforgetpassword") ) {
+		
+		
+		if ( url.equals("/") ||  url.contains("/assets") || url.contains("/login") || url.contains("/logout") || url.contains("/signup") || url.contains("/forgetpassword") || url.contains("/authentication") || url.contains("/saveuser") || url.contains("/updatepasswordjspopen") || url.contains("/updatemypassword") || url.contains("/sendotpforforgetpassword") ) {
 			chain.doFilter(request, response);
 		} else {
 			if (session.getAttribute("user") == null) {
