@@ -28,10 +28,11 @@ public class LoginCheckFilter implements Filter {
 			chain.doFilter(request, response);
 		} else {
 			if (session.getAttribute("user") == null) {
-				System.out.println("============");
 				request.setAttribute("error", "Please Login Before Access the services");
 				RequestDispatcher rd = request.getRequestDispatcher("login");
 				rd.forward(request, response);
+			}else {
+				chain.doFilter(request, response);
 			}
 		}
 	}
