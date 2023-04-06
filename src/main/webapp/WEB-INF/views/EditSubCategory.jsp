@@ -1,3 +1,4 @@
+<%@page import="com.google.bean.SubCategoryBean"%>
 <%@page import="com.google.bean.CategoryBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -6,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>eComApp | New SubCategory</title>
+<title>eComApp | Edit SubCategory</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -22,7 +23,7 @@
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
 				<li class="breadcrumb-item">SubCategory</li>
-				<li class="breadcrumb-item active">New</li>
+				<li class="breadcrumb-item active">Edit</li>
 			</ol>
 		</nav>
 	</div>
@@ -35,18 +36,23 @@
 
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">New SubCategory</h5>
+						<h5 class="card-title">Edit SubCategory</h5>
 
 						<%
 							List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list");
+							SubCategoryBean subCategory = (SubCategoryBean) request.getAttribute("subCategory");
 						%>
 
-						<form action="savesubcategory" method="post">
+						<form action="updatesubcategory" method="post">
+							<input type="hidden" name="subCategoryId" value="<%=subCategory.getSubCategoryId() %>"/>
+						
 							<div class="row mb-3">
 								<label for="inputText" class="col-sm-2 col-form-label">SubCategoryName
 								</label>
 								<div class="col-sm-6">
-									<input type="text" name="subCategoryName" class="form-control">
+									<input type="text" name="subCategoryName"
+										value="<%=subCategory.getSubCategoryName()%>"
+										class="form-control">
 								</div>
 							</div>
 
@@ -55,11 +61,12 @@
 								<div class="col-sm-6">
 									<select name="categoryId" id="categoryId" class="form-select"
 										aria-label="Default select example">
-										<option  selected value="-1">Select Category</option>
+										<option value="-1">Select Category</option>
 										<%
 											for (CategoryBean cb : list) {
 										%>
-										<option value="<%=cb.getCategoryId()%>">
+										<option value="<%=cb.getCategoryId()%>"
+											<%=cb.getCategoryId() == subCategory.getCategoryId() ? "selected" : ""%>>
 											<%=cb.getCategoryName()%></option>
 										<%
 											}
@@ -71,8 +78,8 @@
 							<div class="row mb-3">
 								<div class="col-2"></div>
 								<div class="col-2">
-									<button class="btn btn-primary w-100" type="submit">Save
-										SubCategory</button>
+									<button class="btn btn-primary w-100" type="submit">Update
+									</button>
 
 								</div>
 								<div class="col-2">
@@ -106,15 +113,13 @@
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 	<jsp:include page="AllJs.jsp"></jsp:include>
 	<script>
-		
-		function validateSubCategory(){
+		function validateSubCategory() {
 			categoryId = document.getElementById("categoryId");
 			isError = false;
-			if(categoryId.value == "-1"){
+			if (categoryId.value == "-1") {
 				isError = true;
 			}
 		}
-	
 	</script>
 
 </body>

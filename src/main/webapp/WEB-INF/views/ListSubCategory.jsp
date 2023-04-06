@@ -63,7 +63,11 @@
 									<tr>
 										<td><%=sb.getSubCategoryName()%></td>
 										<td><%=sb.getCategoryName()%>
-										<td><a type="button" class="btn btn-danger" href="deletesubcategory/<%=sb.getSubCategoryId()%>">DELETE</a></td>
+										<td>
+										<a href="deletesubcategory/<%=sb.getSubCategoryId()%>"><i class="bi bi-trash text-danger"></i> </a>
+										<a href="editsubcategory?subCategoryId=<%=sb.getSubCategoryId() %>"><i class="bi bi-pencil text-primary"></i></a>  
+										
+										</td>
 									</tr>
 									<%
 										}

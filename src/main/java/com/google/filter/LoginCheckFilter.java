@@ -20,20 +20,23 @@ public class LoginCheckFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		System.out.println("LoginCheckFilter called.....");
+
 
 		String url = ((HttpServletRequest) request).getRequestURI();
-		System.out.println(url);
-		
-		
-		if ( url.equals("/") ||  url.contains("/assets") || url.contains("/login") || url.contains("/logout") || url.contains("/signup") || url.contains("/forgetpassword") || url.contains("/authentication") || url.contains("/saveuser") || url.contains("/updatepasswordjspopen") || url.contains("/updatemypassword") || url.contains("/sendotpforforgetpassword") ) {
+		if (!url.contains("/assets"))
+			System.out.println(url);
+
+		if (url.equals("/") || url.contains("/assets") || url.contains("/login") || url.contains("/logout")
+				|| url.contains("/signup") || url.contains("/forgetpassword") || url.contains("/authentication")
+				|| url.contains("/saveuser") || url.contains("/updatepasswordjspopen")
+				|| url.contains("/updatemypassword") || url.contains("/sendotpforforgetpassword")) {
 			chain.doFilter(request, response);
 		} else {
 			if (session.getAttribute("user") == null) {
 				request.setAttribute("error", "Please Login Before Access the services");
 				RequestDispatcher rd = request.getRequestDispatcher("login");
 				rd.forward(request, response);
-			}else {
+			} else {
 				chain.doFilter(request, response);
 			}
 		}
