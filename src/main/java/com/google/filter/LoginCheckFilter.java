@@ -26,7 +26,7 @@ public class LoginCheckFilter implements Filter {
 		if (!url.contains("/assets"))
 			System.out.println(url);
 
-		if (url.equals("/") || url.contains("/assets") || url.contains("/login") || url.contains("/logout")
+		if ( url.contains("/seedetails")  ||  url.equals("/") || url.contains("/assets") || url.contains("/login") || url.contains("/logout")
 				|| url.contains("/signup") || url.contains("/forgetpassword") || url.contains("/authentication")
 				|| url.contains("/saveuser") || url.contains("/updatepasswordjspopen")
 				|| url.contains("/updatemypassword") || url.contains("/sendotpforforgetpassword")) {

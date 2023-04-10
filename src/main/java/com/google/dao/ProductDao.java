@@ -27,7 +27,7 @@ public class ProductDao {
 	}
 
 	public ProductBean getProductById(Integer productId) {
-		return stmt.queryForObject("select * from products where productId = ?",
+		return stmt.queryForObject("select p.*,c.categoryName,sc.subCategoryName from products p,category c,subcategory sc  where p.categoryId = c.categoryId and  p.subcategoryid = sc.subcategoryid and productId = ?",
 				new BeanPropertyRowMapper<ProductBean>(ProductBean.class), new Object[] { productId });
 	}
 
@@ -44,6 +44,13 @@ public class ProductDao {
 	public List<ProductBean> getAllLatestProducts() {
 		return stmt.query(
 				"select p.*,c.categoryName,sc.subCategoryName from products p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.latestInd = 1 order by p.productId desc",
+				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
+
+	}
+
+	public List<ProductBean> getAllTopSellingProducts() {
+		return stmt.query(
+				"select p.*,c.categoryName,sc.subCategoryName from products p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.topSellingInd = 1 order by p.productId desc",
 				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 
 	}
