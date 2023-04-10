@@ -141,6 +141,22 @@
 
 								</div>
 							</div>
+
+
+
+							<div class="row mb-3">
+								<legend class="col-form-label col-sm-2 pt-0">Latest?</legend>
+								<div class="col-sm-10">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											id="gridCheck2" value="true" name="latestInd" > <label
+											class="form-check-label" for="gridCheck2">  </label>
+									</div>
+
+								</div>
+							</div>
+
+
 							
 							<div class="row mb-3">
 								<div class="col-2"></div>

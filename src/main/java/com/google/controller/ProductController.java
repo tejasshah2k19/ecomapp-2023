@@ -41,6 +41,9 @@ public class ProductController {
 		if (productBean.getTopSellingInd() == null) {
 			productBean.setTopSellingInd(false);
 		}
+		if(productBean.getLatestInd() == null) {
+			productBean.setLatestInd(false);
+		}
 		productDao.addProduct(productBean);
 
 		return "redirect:/listproduct";

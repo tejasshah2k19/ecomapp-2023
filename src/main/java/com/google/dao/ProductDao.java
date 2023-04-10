@@ -18,15 +18,13 @@ public class ProductDao {
 
 	public void addProduct(ProductBean productBean) {
 
-		String insertQuery = "insert into products (name,description,categoryId,subCategoryId,qty,price,topSellingInd,mostValueInd,brandName,productDetailDescriptionURL,deleted) "
-				+ "values (?,?,?,?,?,?,?,?,?,?,false)";
+		String insertQuery = "insert into products (name,description,categoryId,subCategoryId,qty,price,topSellingInd,mostValueInd,brandName,productDetailDescriptionURL,deleted,latestInd) "
+				+ "values (?,?,?,?,?,?,?,?,?,?,false,?)";
 		stmt.update(insertQuery, productBean.getName(), productBean.getDescription(), productBean.getCategoryId(),
 				productBean.getSubCategoryId(), productBean.getQty(), productBean.getPrice(),
 				productBean.getTopSellingInd(), productBean.getMostValueInd(), productBean.getBrandName(),
-				productBean.getProductDetailDescriptionURL());
+				productBean.getProductDetailDescriptionURL(), productBean.getLatestInd());
 	}
-
-	 
 
 	public ProductBean getProductById(Integer productId) {
 		return stmt.queryForObject("select * from products where productId = ?",
@@ -34,7 +32,8 @@ public class ProductDao {
 	}
 
 	public List<ProductBean> getAllProducts() {
-		return stmt.query("select p.*,c.categoryName,sc.subCategoryName from products p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId",
+		return stmt.query(
+				"select p.*,c.categoryName,sc.subCategoryName from products p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId",
 				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 	}
 
@@ -42,7 +41,11 @@ public class ProductDao {
 		stmt.update("update products set deleted = true where productId = ? ", productId);
 	}
 
+	public List<ProductBean> getAllLatestProducts() {
+		return stmt.query(
+				"select p.*,c.categoryName,sc.subCategoryName from products p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.latestInd = 1 order by p.productId desc",
+				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 
-
+	}
 
 }

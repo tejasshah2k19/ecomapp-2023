@@ -134,6 +134,7 @@ create table productimage ( productimageid integer primary key auto_increment,pr
 
 alter table users add column imageUrl varchar(1024);
 
+alter table products add column latestInd boolean; 
 
 
 
