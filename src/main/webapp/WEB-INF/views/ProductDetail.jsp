@@ -230,11 +230,12 @@
 											<%=product.getPrice() + (product.getPrice() * 0.10)%></del>
 									</div>
 
-									<form action="" class="cart">
+									<form action="addtocart" class="cart">
 										<div class="quantity">
 											<input type="number" size="4" class="input-text qty text"
 												title="Qty" value="1" name="quantity" min="1" step="1">
 										</div>
+										<input type="hidden" name="productId" value="<%=product.getProductId()%>"/>
 										<button class="add_to_cart_button" type="submit">Add
 											to cart</button>
 									</form>
@@ -316,7 +317,7 @@
 												<div class="product-f-image">
 													<img src="img/product-4.jpg" alt="">
 													<div class="product-hover">
-														<a href="" class="add-to-cart-link"><i
+														<a href="addtocart?productId=<%=product.getProductId() %>" class="add-to-cart-link"><i
 															class="fa fa-shopping-cart"></i> Add to cart</a> <a href=""
 															class="view-details-link"><i class="fa fa-link"></i>
 															See details</a>

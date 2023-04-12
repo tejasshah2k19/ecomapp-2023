@@ -137,6 +137,14 @@ alter table users add column imageUrl varchar(1024);
 alter table products add column latestInd boolean; 
 
 
+-----------------
+
+create table cart(
+cartId int primary key auto_increment,
+userId int ,
+productId int,
+qty int 
+);
 
 
 

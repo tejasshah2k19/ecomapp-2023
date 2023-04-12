@@ -208,7 +208,7 @@
 										src="assets/users/products/<%=product.getProductId()%>/main.jpg"
 										alt="">
 									<div class="product-hover">
-										<a href="#" class="add-to-cart-link"><i
+										<a href="addtocart?productId=<%=product.getProductId() %>" class="add-to-cart-link"><i
 											class="fa fa-shopping-cart"></i> Add to cart</a> <a
 											href="seedetails?productId=<%=product.getProductId()%>" class="view-details-link"><i
 											class="fa fa-link"></i> See details</a>
@@ -248,7 +248,7 @@
 										src="assets/users/products/<%=product.getProductId()%>/main.jpg"
 										alt="">
 									<div class="product-hover">
-										<a href="#" class="add-to-cart-link"><i
+										<a href="addtocart?productId=<%=product.getProductId() %>" class="add-to-cart-link"><i
 											class="fa fa-shopping-cart"></i> Add to cart</a> 
 											<a
 											href="seedetails?productId=<%=product.getProductId()%>" class="view-details-link"><i
