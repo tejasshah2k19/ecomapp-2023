@@ -6,6 +6,11 @@ public class CartBean {
 	Integer userId;
 	Integer qty;
 
+	Integer price;
+	String name;
+	String imageUrl;
+	
+	
 	public Integer getCartId() {
 		return cartId;
 	}
@@ -38,4 +43,28 @@ public class CartBean {
 		this.qty = qty;
 	}
 
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	
 }

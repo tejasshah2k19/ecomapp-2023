@@ -1,6 +1,9 @@
 package com.google.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +19,10 @@ public class CartDao {
 				cart.getQty());
 	}
 
+	public List<CartBean> myCart(Integer userId) {
+
+		return stmt.query(
+				"select p.productId , p.price , p.name  , c.qty , c.cartId from products p , cart c where c.userId = ? and c.productId = p.productId",
+				new BeanPropertyRowMapper<>(CartBean.class), new Object[] { userId });
+	}
 }

@@ -23,7 +23,7 @@ public class LoginCheckFilter implements Filter {
 
 
 		String url = ((HttpServletRequest) request).getRequestURI();
-		if (!url.contains("/assets"))
+		if (!url.contains("/assets") || !url.contains("/img"))
 			System.out.println(url);
 
 		if ( url.contains("/seedetails")  ||  url.equals("/") || url.contains("/assets") || url.contains("/login") || url.contains("/logout")

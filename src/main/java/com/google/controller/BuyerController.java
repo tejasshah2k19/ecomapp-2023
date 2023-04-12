@@ -22,7 +22,7 @@ public class BuyerController {
 	@Autowired
 	ProductImageDao productImageDao;
 	
-	@GetMapping("/")
+	@GetMapping(value = {"/","/welcome"})
 	public String welcome(Model model) {
 		List<ProductBean> latestProduct = productDao.getAllLatestProducts();
 		List<ProductBean> topSellingProducts = productDao.getAllTopSellingProducts();
@@ -34,7 +34,7 @@ public class BuyerController {
 	// login
 	@GetMapping("/home")
 	public String home() {
-		return "Home";
+		return "redirect:/welcome";
 	}
 
 	@GetMapping("/seedetails")
