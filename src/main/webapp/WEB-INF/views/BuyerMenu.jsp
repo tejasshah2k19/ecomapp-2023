@@ -15,7 +15,7 @@
 						<li><a href="mycart">Cart</a></li>
 						<li><a href="myaddress">My Address</a></li>
 						<li><a href="#">Category</a></li>
-	 					<li><a href="#">Contact</a></li>
+	 					<li><a href="myorders">Orders</a></li>
 						<li><a href="logout">Logout</a></li>
 					</ul>
 				</div>

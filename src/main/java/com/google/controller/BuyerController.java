@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.bean.AddressBean;
 import com.google.bean.CartBean;
+import com.google.bean.OrderBean;
+import com.google.bean.OrderDetailBean;
 import com.google.bean.ProductBean;
 import com.google.bean.ProductImageBean;
 import com.google.bean.UserBean;
 import com.google.dao.AddressDao;
 import com.google.dao.CartDao;
+import com.google.dao.OrderDao;
 import com.google.dao.ProductDao;
 import com.google.dao.ProductImageDao;
 
@@ -36,6 +39,9 @@ public class BuyerController {
 	
 	@Autowired
 	CartDao cartDao;
+	
+	@Autowired
+	OrderDao orderDao;
 	
 	@GetMapping(value = {"/","/welcome"})
 	public String welcome(Model model) {
@@ -118,9 +124,51 @@ public class BuyerController {
 		System.out.println(status);
 		System.out.println(addressId);
 		
+		OrderBean orderBean = new OrderBean();
+		orderBean.setAddressId(addressId);
+		orderBean.setOrderDate(today.toString());
+		orderBean.setOrderId(orderId);
+		orderBean.setUserId(user.getUserId());
+		orderBean.setStatus(status);
+		orderBean.setTotalAmount(totalAmount);
 		
-		return "";
+		orderDao.addOrder(orderBean);
+		for(CartBean c:mycart) {
+			orderDao.addOrderDetail(c, orderId);
+		}
+		
+		
+		cartDao.removeItemsFromCart(user.getUserId());
+		
+		
+		return "redirect:/myorders";
 	}
 
+	@GetMapping("/myorders")
+	public String myOrders(HttpSession session,Model model) {
+		UserBean user = (UserBean) session.getAttribute("user");
+		
+		List<OrderBean> myorders = orderDao.getOrdersByUser(user.getUserId());
+		model.addAttribute("myorders",myorders);
+		return "MyOrder";	
+				
+	}
+	@GetMapping("/orderdetails")
+	public String orderDetails(@RequestParam("orderId") Integer orderId,Model model) {
+		List<OrderDetailBean> myorderdetail = orderDao.getOrderDetailByOrder(orderId);
+		OrderBean order = orderDao.getOrdersByOrderId(orderId);
+		
+		model.addAttribute("order",order);
+		model.addAttribute("myorderdetail",myorderdetail);
+		
+		System.out.println("Order =>"+order);
+		System.out.println("OrderDetail =>"+myorderdetail);
+		return "MyOrderDetail";
+	}
+	
+	
+	
+	
+	
 }
 

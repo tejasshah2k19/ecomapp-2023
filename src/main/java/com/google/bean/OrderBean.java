@@ -7,8 +7,14 @@ public class OrderBean {
 	Integer totalAmount;
 	Integer addressId;
 	Integer status;
+	String statusName;
 	String firstName;
 	String email;
+	String addressLine;
+	String pincode;
+	String city;
+	String state; 
+	
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -56,6 +62,36 @@ public class OrderBean {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getStatusName() {
+		return statusName;
+	}
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	public String getAddressLine() {
+		return addressLine;
+	}
+	public void setAddressLine(String addressLine) {
+		this.addressLine = addressLine;
+	}
+	public String getPincode() {
+		return pincode;
+	}
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

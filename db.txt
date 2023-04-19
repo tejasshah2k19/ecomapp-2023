@@ -151,7 +151,16 @@ delete from orders;
 
 alter table orders add column orderId integer not null unique; 
 
-
+-----------------------------
+create table orderDetail(
+orderDetailId int primary key auto_increment,
+orderId int ,
+userId int , 
+productId int, 
+qty int ,
+price float , 
+status int 
+);
 
 
 
