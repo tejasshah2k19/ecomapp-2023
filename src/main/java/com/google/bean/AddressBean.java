@@ -1,7 +1,7 @@
 package com.google.bean;
 
 public class AddressBean {
-	Integer addresId;
+	Integer addressId;
 	String addressLine;
 	String landMark;
 	String pincode;
@@ -10,11 +10,13 @@ public class AddressBean {
 	String state;
 	Integer userId;
 	Boolean defaultInd;
-	public Integer getAddresId() {
-		return addresId;
+
+	
+	public Integer getAddressId() {
+		return addressId;
 	}
-	public void setAddresId(Integer addresId) {
-		this.addresId = addresId;
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
 	}
 	public String getAddressLine() {
 		return addressLine;

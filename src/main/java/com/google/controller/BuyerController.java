@@ -1,5 +1,6 @@
 package com.google.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -87,9 +88,39 @@ public class BuyerController {
 
 		List<CartBean> mycart = cartDao.myCart(user.getUserId());
 		
+		List<AddressBean> address =  addressDao.getAllAddressByUser(user.getUserId());
+		
 		model.addAttribute("mycart",mycart);
+		model.addAttribute("address",address);
 
 		return "Checkout";
 	}
+
+
+	@PostMapping("/placeorder")
+	public String placeOrder(AddressBean addressBean,HttpSession session) {
+		UserBean user = (UserBean) session.getAttribute("user");
+		Integer addressId = addressBean.getAddressId(); 
+		LocalDate today = LocalDate.now();
+		Integer status = 7; //placed
+		Integer orderId = (int)(Math.random()*10000000);//565475455 
+		
+		//amount 
+		List<CartBean> mycart = cartDao.myCart(user.getUserId());
+		Integer totalAmount =0 ; 
+		for(CartBean c:mycart) {
+			totalAmount = (totalAmount)+(c.getPrice()*c.getQty());
+		}
+		System.out.println(orderId);
+		System.out.println(today);
+		System.out.println(user.getUserId());
+		System.out.println(totalAmount);
+		System.out.println(status);
+		System.out.println(addressId);
+		
+		
+		return "";
+	}
+
 }
 

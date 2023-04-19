@@ -1,3 +1,4 @@
+<%@page import="com.google.bean.AddressBean"%>
 <%@page import="com.google.bean.CartBean"%>
 <%@page import="com.google.bean.ProductImageBean"%>
 <%@page import="com.google.bean.ProductBean"%>
@@ -116,7 +117,7 @@
 					<div class="product-content-right">
 						<div class="woocommerce">
 
- 
+
 							<div id="order_review" style="position: relative;">
 								<table class="shop_table">
 									<thead>
@@ -150,7 +151,7 @@
 
 										<tr class="shipping">
 											<th>Shipping and Handling</th>
-											<td>${totalPrice <= 499?50:"Free Shipping" } <input
+											<td>${totalPrice <= 499?50:"Free Shipping" }<input
 												type="hidden" class="shipping_method" value="free_shipping"
 												id="shipping_method_0" data-index="0"
 												name="shipping_method[0]">
@@ -168,47 +169,31 @@
 								</table>
 
 
+								<%
+									List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
+								%>
+					<form action="placeorder" method="post"> 
 								<div id="payment">
 									<ul class="payment_methods methods">
+									
+									
+										<%for(AddressBean a:address){ %>
 										<li class="payment_method_bacs"><input type="radio"
-											data-order_button_text="" checked="checked" value="bacs"
-											name="payment_method" class="input-radio"
+											   <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getAddressId()%>"
+											name="addressId" class="input-radio"
 											id="payment_method_bacs"> <label
-											for="payment_method_bacs">Direct Bank Transfer </label>
+											for="payment_method_bacs"> <%=a.getAddressLine()%> </label>
 											<div class="payment_box payment_method_bacs">
-												<p>Make your payment directly into our bank account.
-													Please use your Order ID as the payment reference. Your
-													order won’t be shipped until the funds have cleared in our
-													account.</p>
+												<p> 
+													<%=a.getLandMark() %> | 
+													<%=a.getCity() %> |
+													<%=a.getPincode() %> |
+													<%=a.getState() %>
+												</p>
 											</div></li>
-										<li class="payment_method_cheque"><input type="radio"
-											data-order_button_text="" value="cheque"
-											name="payment_method" class="input-radio"
-											id="payment_method_cheque"> <label
-											for="payment_method_cheque">Cheque Payment </label>
-											<div style="display: none;"
-												class="payment_box payment_method_cheque">
-												<p>Please send your cheque to Store Name, Store Street,
-													Store Town, Store State / County, Store Postcode.</p>
-											</div></li>
-										<li class="payment_method_paypal"><input type="radio"
-											data-order_button_text="Proceed to PayPal" value="paypal"
-											name="payment_method" class="input-radio"
-											id="payment_method_paypal"> <label
-											for="payment_method_paypal">PayPal <img
-												alt="PayPal Acceptance Mark"
-												src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"><a
-												title="What is PayPal?"
-												onclick="javascript:window.open('https://www.paypal.com/gb/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"
-												class="about_paypal"
-												href="https://www.paypal.com/gb/webapps/mpp/paypal-popup">What
-													is PayPal?</a>
-										</label>
-											<div style="display: none;"
-												class="payment_box payment_method_paypal">
-												<p>Pay via PayPal; you can pay with your credit card if
-													you don’t have a PayPal account.</p>
-											</div></li>
+											<%} %>
+
+
 									</ul>
 
 									<div class="form-row place-order">
@@ -219,7 +204,7 @@
 
 
 									</div>
-
+						</form>
 									<div class="clear"></div>
 
 								</div>

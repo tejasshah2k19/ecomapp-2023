@@ -146,6 +146,11 @@ productId int,
 qty int 
 );
 
+alter table orders drop column orderId; 
+delete from orders; 
+
+alter table orders add column orderId integer not null unique; 
+
 
 
 
